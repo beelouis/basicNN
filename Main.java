@@ -4,14 +4,13 @@ class Main{
       System.out.println("Arg " + i + ", " + args[i]);
     }
 
-    int size;
-    try {
-      size = Integer.valueOf(args[0]);
-    } catch (ArrayIndexOutOfBoundsException e){
-      size = 1;
-      System.out.println("(using default value of 1 neuron)");
-    }
-    
-    NN network = new NN(size);
+    int[] layers = new int[3];
+    layers[0] = 2;
+    layers[1] = 5;
+    layers[2] = 2;
+
+    NN network = new NN(layers);
+    network.fullyConnect();
+    network.printNN();
   }
 }
